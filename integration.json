@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "status": "ready",
+  "verification": "mock-only",
+  "releaseEligible": true,
+  "maintainer": "jannikco",
+  "license": "MIT",
+  "sourceRevision": "eb07e07842ae8be938ade815445dcdb9fc13787257120597b1341437ff9cf876",
+  "evidence": [
+    "Source-backed provider setup metadata",
+    "Offline configuration and MCP protocol tests"
+  ],
+  "provenance": [
+    "https://airtable.com/developers/web/api/introduction"
+  ],
+  "id": "airtable-mcp",
+  "kind": "mcp-setup",
+  "product": "pipmcp",
+  "title": "Airtable MCP setup and connection checker",
+  "description": "Generate Airtable MCP client configuration, inspect available tools and validate hosted endpoint access through PipMCP.",
+  "operationIds": [],
+  "appSlug": "airtable",
+  "appName": "Airtable",
+  "providerDocs": "https://airtable.com/developers/web/api/introduction",
+  "providerWebsite": "https://airtable.com/",
+  "authentication": {
+    "type": "bearer",
+    "requiredCredentialFields": [
+      "token"
+    ],
+    "requiredHeaderNames": [],
+    "helpUrl": "https://airtable.com/developers/web/guides/personal-access-tokens",
+    "tenantRequired": false,
+    "accountParameterNames": []
+  },
+  "attributionSlug": "github-airtable-mcp"
+}
