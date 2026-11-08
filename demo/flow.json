@@ -1,0 +1,53 @@
+{
+  "id": "lead-data-quality",
+  "repositoryId": "airtable-mcp",
+  "product": "pipmcp",
+  "connectorId": "airtable",
+  "title": "Find Airtable leads missing contact data",
+  "promise": "Review incomplete lead records before any campaign or CRM update.",
+  "sourceRevision": "2869aca14bfdfd0646534276ad66f6cbb2efc0bfe25bf09fb7de5b2faf93afb5",
+  "credential": "PIPMCP_API_KEY",
+  "transport": "pipmcp-gateway",
+  "sourceRefs": [
+    "https://airtable.com/developers/web/api/introduction"
+  ],
+  "readTask": {
+    "intent": "Review incomplete lead records before any campaign or CRM update.",
+    "requiredCapability": "Read-only authorized account data; discover actual names and schemas first"
+  },
+  "synthetic": {
+    "strategy": "equals",
+    "field": "emailPresent",
+    "value": false,
+    "records": [
+      {
+        "id": "synthetic-row-a",
+        "company": "Synthetic A",
+        "email": null
+      },
+      {
+        "id": "synthetic-row-b",
+        "company": "Synthetic B",
+        "email": "synthetic@example.invalid"
+      }
+    ],
+    "input": {
+      "limit": 10
+    },
+    "normalization": "Invented normalized review fields demonstrate task logic; live provider schemas and field mappings must be reviewed separately.",
+    "expectedReviewCount": 1,
+    "asOf": "2026-11-08T00:00:00Z",
+    "normalize": {
+      "type": "email-present",
+      "sourceField": "email"
+    }
+  },
+  "livePolicy": {
+    "default": "preflight-only",
+    "explicitReadSelectionRequired": true,
+    "providerWritesAllowed": false,
+    "sandboxWritesRequireSeparateApproval": true
+  },
+  "baseSourceRevision": "3681132db404598cb9d281f27298e5cab3d27a28a5376bddd61d52cc9280dd57",
+  "releaseVersion": "1.1.0"
+}

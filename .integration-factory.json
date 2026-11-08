@@ -12,7 +12,7 @@
   "maintainer": "jannikco",
   "license": "MIT",
   "attributionSlug": "github-airtable-mcp",
-  "sourceRevision": "3681132db404598cb9d281f27298e5cab3d27a28a5376bddd61d52cc9280dd57",
+  "sourceRevision": "2869aca14bfdfd0646534276ad66f6cbb2efc0bfe25bf09fb7de5b2faf93afb5",
   "qualityVersion": 2,
   "artifactType": "connector",
   "evidence": [
@@ -30,7 +30,7 @@
   "appName": "Airtable",
   "connectorId": "airtable",
   "executionAuthority": "pipmcp-gateway",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "agentReady": true,
   "capabilityEvidence": {
     "local": {
