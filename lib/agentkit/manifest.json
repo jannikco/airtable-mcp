@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "product": "pipmcp",
+  "credential": "PIPMCP_API_KEY",
+  "skills": [
+    {
+      "name": "pipmcp-airtable",
+      "description": "Connect AI agents to Airtable using one PipMCP API key and actual hosted tool discovery."
+    }
+  ],
+  "files": {
+    "skills/pipmcp-airtable/SKILL.md": "561a39e09451bd91a57c2705ddca1005454b8d8177cf3c9e1ebb9e2b32b64798"
+  }
+}

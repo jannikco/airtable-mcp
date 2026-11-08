@@ -1,287 +1,62 @@
 {
   "schemaVersion": 1,
-  "status": "ready",
-  "verification": "mock-only",
-  "releaseEligible": true,
-  "maintainer": "jannikco",
-  "license": "MIT",
-  "sourceRevision": "10b7633b6bba3a211e57270d234c59f6f75c539f7ce415883317fdf6aafce074",
-  "evidence": [
-    "Actual tools/call and direct-provider request contract tests"
-  ],
-  "provenance": [
-    "https://airtable.com/developers/web/api/introduction"
-  ],
   "id": "airtable-mcp",
   "kind": "provider-connector",
   "product": "pipmcp",
   "title": "Airtable MCP server",
-  "description": "Find an accessible base and read one selected table to prepare a customer briefing.",
-  "operationIds": [
-    "list_bases",
-    "list_records"
+  "description": "Use Airtable with AI agents through one PipMCP API key, actual hosted schemas and governed execution.",
+  "status": "ready",
+  "verification": "mock-only",
+  "releaseEligible": true,
+  "operationIds": [],
+  "maintainer": "jannikco",
+  "license": "MIT",
+  "attributionSlug": "github-airtable-mcp",
+  "sourceRevision": "3681132db404598cb9d281f27298e5cab3d27a28a5376bddd61d52cc9280dd57",
+  "qualityVersion": 2,
+  "artifactType": "connector",
+  "evidence": [
+    "Gateway HTTP transport fixtures",
+    "Generated stdio wrapper discovery/call fixtures"
   ],
+  "provenance": [
+    "https://airtable.com/developers/web/api/introduction"
+  ],
+  "utility": {
+    "problem": "Find an accessible base and read one selected table to prepare a customer briefing.",
+    "output": "Actual hosted tool schemas and durable governed execution receipts"
+  },
   "appSlug": "airtable",
   "appName": "Airtable",
-  "providerDocs": "https://airtable.com/developers/web/api/introduction",
-  "providerWebsite": "https://airtable.com/",
-  "authentication": {
-    "type": "bearer",
-    "requiredCredentialFields": [
-      "token"
-    ],
-    "settings": {},
-    "requiredHeaderNames": [],
-    "helpUrl": "https://airtable.com/developers/web/guides/personal-access-tokens",
-    "tenantRequired": false,
-    "accountParameterNames": []
-  },
-  "attributionSlug": "github-airtable-mcp",
-  "artifactType": "connector",
-  "qualityVersion": 2,
   "connectorId": "airtable",
-  "connector": {
-    "id": "airtable",
-    "name": "Airtable",
-    "version": "0.2.0",
-    "baseUrl": "https://api.airtable.com/v0",
-    "auth": {
-      "type": "bearer",
-      "env": "AIRTABLE_ACCESS_TOKEN"
-    },
-    "tools": [
-      {
-        "name": "list_bases",
-        "description": "List bases available to your Airtable personal access token.",
-        "method": "GET",
-        "path": "/meta/bases",
-        "readOnly": true,
-        "inputSchema": {
-          "type": "object",
-          "properties": {
-            "offset": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 512,
-              "description": "Identifier"
-            }
-          },
-          "required": [],
-          "additionalProperties": false
-        },
-        "bindings": {
-          "path": [],
-          "query": {
-            "offset": "offset"
-          },
-          "body": {}
-        },
-        "sampleArguments": {},
-        "provenance": [
-          "https://airtable.com/developers/web/api/list-bases"
-        ],
-        "pagination": {
-          "type": "cursor",
-          "cursorInput": "offset",
-          "nextCursorPath": "offset"
-        }
-      },
-      {
-        "name": "list_records",
-        "description": "Read records in an authorized base and table.",
-        "method": "GET",
-        "path": "/{baseId}/{tableId}",
-        "readOnly": true,
-        "inputSchema": {
-          "type": "object",
-          "properties": {
-            "baseId": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 512,
-              "description": "Identifier"
-            },
-            "tableId": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 512,
-              "description": "Identifier"
-            },
-            "pageSize": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100
-            },
-            "offset": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 512,
-              "description": "Identifier"
-            }
-          },
-          "required": [
-            "baseId",
-            "tableId"
-          ],
-          "additionalProperties": false
-        },
-        "bindings": {
-          "path": [
-            "baseId",
-            "tableId"
-          ],
-          "query": {
-            "pageSize": "pageSize",
-            "offset": "offset"
-          },
-          "body": {}
-        },
-        "sampleArguments": {
-          "baseId": "appExample",
-          "tableId": "tblExample",
-          "pageSize": 10
-        },
-        "provenance": [
-          "https://airtable.com/developers/web/api/list-records"
-        ],
-        "pagination": {
-          "type": "cursor",
-          "cursorInput": "offset",
-          "nextCursorPath": "offset"
-        }
-      }
-    ],
-    "workflow": {
-      "name": "CRM table briefing",
-      "description": "Find an accessible base and read one selected table to prepare a customer briefing.",
-      "steps": [
-        "list_bases",
-        "list_records"
-      ]
-    },
-    "provenance": [
-      "https://airtable.com/developers/web/api/introduction"
-    ],
-    "verification": "mock-only",
-    "providerLiveValidation": "not-run",
-    "capabilityEvidence": {
-      "local": {
-        "level": "Tested",
-        "operations": [
-          {
-            "name": "list_bases",
-            "level": "Tested",
-            "evidenceRefs": [
-              "Provider request/stdio contract tests"
-            ],
-            "method": "contract-fixture"
-          },
-          {
-            "name": "list_records",
-            "level": "Tested",
-            "evidenceRefs": [
-              "Provider request/stdio contract tests"
-            ],
-            "method": "contract-fixture"
-          }
-        ],
-        "evidenceRefs": [
-          "Provider request/stdio contract tests"
-        ],
-        "mode": "local"
-      },
-      "managed": {
-        "level": "Documented",
-        "operations": [
-          {
-            "name": "list_bases",
-            "level": "Documented",
-            "evidenceRefs": [],
-            "method": "documentation"
-          },
-          {
-            "name": "list_records",
-            "level": "Documented",
-            "evidenceRefs": [],
-            "method": "documentation"
-          }
-        ],
-        "evidenceRefs": [],
-        "mode": "managed"
-      }
-    },
-    "repoId": "airtable-mcp",
-    "appSlug": "airtable",
-    "product": "pipmcp",
-    "artifactType": "connector",
-    "sourceRevision": "10b7633b6bba3a211e57270d234c59f6f75c539f7ce415883317fdf6aafce074",
-    "authentication": {
-      "type": "bearer",
-      "requiredCredentialFields": [
-        "token"
-      ],
-      "settings": {},
-      "requiredHeaderNames": [],
-      "helpUrl": "https://airtable.com/developers/web/guides/personal-access-tokens",
-      "tenantRequired": false,
-      "accountParameterNames": []
-    },
-    "managedAvailability": {
-      "status": "import-required",
-      "integration": "openapi-to-mcp",
-      "checkedAt": "2026-11-08T12:29:10.433747+00:00"
-    }
-  },
+  "executionAuthority": "pipmcp-gateway",
+  "version": "1.0.0",
+  "agentReady": true,
   "capabilityEvidence": {
     "local": {
       "level": "Tested",
       "operations": [
         {
-          "name": "list_bases",
+          "name": "gateway_transport",
           "level": "Tested",
+          "method": "contract-fixture",
           "evidenceRefs": [
-            "Provider request/stdio contract tests"
-          ],
-          "method": "contract-fixture"
-        },
-        {
-          "name": "list_records",
-          "level": "Tested",
-          "evidenceRefs": [
-            "Provider request/stdio contract tests"
-          ],
-          "method": "contract-fixture"
+            "Generated gateway/stdio fixtures"
+          ]
         }
       ],
       "evidenceRefs": [
-        "Provider request/stdio contract tests"
+        "Generated gateway/stdio fixtures"
       ],
       "mode": "local"
     },
     "managed": {
       "level": "Documented",
-      "operations": [
-        {
-          "name": "list_bases",
-          "level": "Documented",
-          "evidenceRefs": [],
-          "method": "documentation"
-        },
-        {
-          "name": "list_records",
-          "level": "Documented",
-          "evidenceRefs": [],
-          "method": "documentation"
-        }
-      ],
+      "operations": [],
       "evidenceRefs": [],
       "mode": "managed"
     }
   },
-  "utility": {
-    "problem": "Find an accessible base and read one selected table to prepare a customer briefing.",
-    "output": "Actual provider API results through local MCP tools"
-  },
   "factory": "leadadapter-pipmcp",
-  "generatorVersion": 2
+  "generatorVersion": 3
 }
