@@ -1,3 +1,70 @@
+# Prepare a customer briefing from a selected table
+
+**Airtable + your AI assistant · powered by PipMCP**
+
+You want to prepare a customer briefing from a selected table, using the account your team has actually connected.
+
+**Made for:** Client service teams
+
+For real use, you will need PipMCP and access to Airtable.
+
+## Ask your AI to set this up
+
+Paste this into a coding assistant that can open project files and run commands, such as Codex, Claude Code or Grok Build. You do not need to understand the code first.
+
+```text
+Help me use this project: https://github.com/jannikco/airtable-mcp
+
+I'm not a programmer. My goal is: Prepare a customer briefing from a selected table.
+
+Read the project instructions and set it up in a new folder without overwriting my work.
+Guide me through PipMCP and its private key setup; never ask me to paste secrets into this
+chat. Run a documented sample-data demo if available, then help me get a first small
+result from my connected app. Explain the result in plain English. Ask before changing
+records, sending messages or publishing anything.
+```
+
+## Three useful things to ask for
+
+```text
+Show my accessible bases, then read the table I choose.
+```
+
+```text
+Summarize the selected records for an upcoming customer call and identify missing
+information. Do not edit the table.
+```
+
+```text
+Turn the selected table records into a short customer-call briefing with the key facts we
+should discuss.
+```
+
+## Your path to a real result
+
+```mermaid
+flowchart LR
+  A["Ask your AI"] --> B["Connect PipMCP"] --> C["Prepare a customer<br/>briefing from a…"] --> D["Review together"]
+```
+
+1. [Open PipMCP setup](https://pipmcp.com/github/start?app=airtable&integration=airtable-mcp&flow=lead-data-quality&utm_source=github&utm_campaign=github-airtable-mcp&utm_content=people-first-readme) and sign in or create your account.
+2. Connect the app in PipMCP with the permissions you want to grant.
+3. Create the product API key through the official setup, add it privately to your AI project's environment, and ask your AI to try a small read.
+
+**What to expect:** Connect Airtable in your PipMCP account, then use your PipMCP key for the supported actions. Review proposed changes before they are sent. Results depend on the connected account and its permissions; check the returned outcome before relying on it.
+
+Add your PipMCP key privately in your project settings. Keep keys out of chat and public repositories.
+
+## Keep going
+
+- [Find another useful integration](https://github.com/jannikco/pipmcp-connectors)
+- [Connect an API you control](https://github.com/jannikco/openapi-to-mcp)
+- [Try the GitHub project](https://github.com/jannikco/github-mcp)
+
+<details>
+<summary>Technical reference: installation commands, exact capabilities and troubleshooting</summary>
+
+<!-- people-first:technical:start -->
 # Airtable MCP server
 
 ## Find Airtable leads missing contact data
@@ -97,3 +164,7 @@ Transport, package and agent fixtures are tested. Authentication/provider access
 ## Provider setup reference
 
 [Official provider documentation](https://airtable.com/developers/web/api/introduction). Credentials are entered in PipMCP; this package does not accept or store provider secrets.
+
+<!-- people-first:technical:end -->
+
+</details>
